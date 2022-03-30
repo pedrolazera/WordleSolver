@@ -1,5 +1,5 @@
 # WordleSolver
-**WordleSolver** is a julia package to solve Wordle games. Some examples of this game, along with rules description, are [Wordle](https://www.nytimes.com/games/wordle/index.html), [Termo](https://term.ooo/) and [Le Mot](https://wordle.louan.me/)
+**WordleSolver** is a julia package to solve Wordle games. Some examples of this game, along with rules description, are [Wordle](https://www.nytimes.com/games/wordle/index.html), [Termo](https://term.ooo/) and [Le Mot](https://wordle.louan.me/).
 
 ## How it works
 
@@ -15,4 +15,4 @@ There are at least two meanings for "solve": find the strategy with the best wor
 
 ## The algorithm
 
-In a nutshell, **WordleSolver** finds the best word with a min-max search enhanced with alpha-beta pruning and other stuff.
+In a nutshell, **WordleSolver** finds the best word with a min-max search enhanced with alpha-beta pruning and other stuff. You can also set the algorithm to work as an heuristic, therefore fast, but with no garanteed best solution.
