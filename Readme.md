@@ -15,7 +15,7 @@ There are at least two meanings for "solve": find the strategy with the best wor
 
 ## How to use
 
-#### Simple usage with custom words and hidde nwords
+#### Simple usage with custom words and hidden words
 
 ```julia
 
