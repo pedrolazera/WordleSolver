@@ -22,9 +22,10 @@ There are at least two meanings for "solve": find the strategy with the best wor
 
 using WordleSolver
 
+branch_factor = 150
 max_depth = 5 # maximum search depth
 W = WordleSolver.T_Wordle(P, S) # assumes G and H are vector of strings
-solver = WordleSolver.MinAvg5(max_depth, W)
+solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
 (opt, i) = WordleSolver.f_min(solver, W)
 ```
 
@@ -35,9 +36,10 @@ solver = WordleSolver.MinAvg5(max_depth, W)
 
 using WordleSolver
 
+branch_factor = 150
 max_depth = 5 # maximum search depth
 W = WordleSolver.T_Wordle(:Wordle) # this is the original Wordle game
-solver = WordleSolver.MinAvg5(max_depth, W)
+solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
 (opt, i) = WordleSolver.f_min(solver, W)
 ```
 
