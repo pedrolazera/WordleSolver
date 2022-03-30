@@ -27,5 +27,5 @@ The package comes with explicit solutions for the **Wordle** and **Termo** versi
 
 * The best average-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_AVG_1648601816.txt)) starts with the word *Salet* and uses 3.42 guesses per game.
 * The best worst-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses at most 5 words. There many ways to achive that, one starting with the word 'aesir'. Since you asked, 'aesir' refers to the gods of the principal pantheon in Norse religion [Wiki](https://en.wikipedia.org/wiki/%C3%86sir).
-* * The best average-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Termo_AVG_1648600950.txt)) starts with the word *coras* and uses 3.42 guesses per game.
+* The best average-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Termo_AVG_1648600950.txt)) starts with the word *coras* and uses 3.42 guesses per game.
 * The best worst-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses at most 4 words. here many ways to achive that, one starting with the word 'tarol'.
