@@ -51,7 +51,7 @@ When your objective is to find the best worst-case strategy, wordle can be model
 
 ## Explicit solutions
 
-The package comes with explicit solutions for the **Wordle** and **Termo** versions (inside the /scrips/explicit) package.
+The package comes with explicit solutions for the **Wordle** and **Termo** versions, located at the the [scripts/explicit_solutions](https://github.com/pedrolazera/WordleSolver/tree/main/scripts/explicit_solutions) folder.
 
 * The best average-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_AVG_1648601816.txt)) starts with the word **Salet** and uses on average **3.42** guesses per game.
 * The best worst-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses **at most 5 words**. There many ways to achieve that, one starting with the word 'aesir'. Since you asked, 'aesir' refers to the gods of the principal pantheon in Norse religion [Wiki](https://en.wikipedia.org/wiki/%C3%86sir).
