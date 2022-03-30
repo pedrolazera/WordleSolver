@@ -13,6 +13,17 @@ A Wordle game is a triplet (G, H, limit), where...
 
 There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **H** are sampled with equal propability).
 
+## How to use
+
+```julia
+using WordleSolver
+
+max_depth = 5 # maximum search depth
+W = WordleSolver.T_Wordle(G, H) # assumes G and H are vector of strings
+solver = WordleSolver.MinAvg5(max_depth, W)
+(opt, i) = WordleSolver.f_min(solver, W)
+```
+
 ## The algorithm
 
 In a nutshell, **WordleSolver** finds the best strategy with a min-max search enhanced with alpha-beta pruning and other stuff. The search, when run in standard mode, always finds the optimal solution. You can also set the algorithm to work as an heuristic, therefore increasing its speed by a very large factor, but with no garanteed best solution.
