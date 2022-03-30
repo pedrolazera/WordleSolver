@@ -22,7 +22,7 @@ There are at least two meanings for "solve": find the strategy with the best wor
 
 using WordleSolver
 
-branch_factor = 150
+branch_factor = 150 # maximum number of children of each node in the search tree
 max_depth = 5 # maximum search depth
 W = WordleSolver.T_Wordle(P, S) # assumes G and H are vector of strings
 solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
@@ -36,7 +36,7 @@ solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
 
 using WordleSolver
 
-branch_factor = 150
+branch_factor = 150 # maximum number of children of each node in the search tree
 max_depth = 5 # maximum search depth
 W = WordleSolver.T_Wordle(:Wordle) # this is the original Wordle game
 solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
