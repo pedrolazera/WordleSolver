@@ -6,16 +6,16 @@
 A Wordle game is a triplet (G, H, limit), where...
 
 * **P** is the set of all possible guesses (words)
-* **S** (a subset of P) is the set all possible hiddenwords
-* **limit** is the maximum number of guesses alowed
+* **S** (a subset of **P**) is the set all possible hidden words
+* **limit** is the maximum number of guesses allowed
 
-... and you goal is guess the hiddenword.
+... and you goal is guess the hidden word.
 
-There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **S** are sampled with equal propability).
+There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **S** are sampled with equal probability).
 
 ## How to use
 
-#### Simple usage with custom words and hiddenwords
+#### Simple usage with custom words and hidde nwords
 
 ```julia
 
@@ -43,17 +43,17 @@ solver = WordleSolver.MinAvg5(max_depth, W)
 
 ## The algorithm
 
-In a nutshell, **WordleSolver** finds the best strategy with a min-max search enhanced with alpha-beta pruning and other stuff. The search, when run in standard mode, always finds the optimal solution. You can also set the algorithm to work as an heuristic, therefore increasing its speed by a very large factor, but with no garanteed best solution.
+In a nutshell, **WordleSolver** finds the best strategy with a min-max search enhanced with alpha-beta pruning and other stuff. The search, when run in standard mode, always finds the optimal solution. You can also set the algorithm to work as an heuristic, therefore increasing its speed by a very large factor, but with no guaranteed  best solution.
 
 #### Modeling
 
-When your objective is to find the best worst-case strategy, wordle can be viewed as finite, zero-sum, two-player games with perfect information. One player chooses the word (the testword) and another player paints the testword, assigning colors to each letter. More about that will be described in another page (to do!).
+When your objective is to find the best worst-case strategy, wordle can be modeled as finite, zero-sum, two-player games with perfect information. One player chooses the word (the testword) and another player paints the testword, assigning colors to each letter. More about that will be described in another page (to do!).
 
 ## Explicit solutions
 
 The package comes with explicit solutions for the **Wordle** and **Termo** versions (inside the /scrips/explicit) package.
 
 * The best average-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_AVG_1648601816.txt)) starts with the word **Salet** and uses on average **3.42** guesses per game.
-* The best worst-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses **at most 5 words**. There many ways to achive that, one starting with the word 'aesir'. Since you asked, 'aesir' refers to the gods of the principal pantheon in Norse religion [Wiki](https://en.wikipedia.org/wiki/%C3%86sir).
+* The best worst-case strategy for Wordle ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses **at most 5 words**. There many ways to achieve that, one starting with the word 'aesir'. Since you asked, 'aesir' refers to the gods of the principal pantheon in Norse religion [Wiki](https://en.wikipedia.org/wiki/%C3%86sir).
 * The best average-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Termo_AVG_1648600950.txt)) starts with the word **coras** and uses **3.23** guesses per game.
-* The best worst-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses **at most 4 words**. There many ways to achive that, one starting with the word **Tarol**.
+* The best worst-case strategy for Termo ([link](https://github.com/pedrolazera/WordleSolver/blob/main/scripts/explicit/out_Wordle_MAX_1648601916.txt)) uses **at most 4 words**. There many ways to achieve that, one starting with the word **Tarol**.
