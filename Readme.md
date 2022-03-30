@@ -49,6 +49,10 @@ In a nutshell, **WordleSolver** finds the best strategy with a min-max search en
 
 When your objective is to find the best worst-case strategy, wordle can be modeled as finite, zero-sum, two-player games with perfect information. One player chooses the word (the testword) and another player paints the testword, assigning colors to each letter. More about that will be described in another page (to do!).
 
+#### Usefulness of this package
+
+This package aims to provide Wordle solutions with proof and clean code, for educational purposes. The solvers (MinAvg and MinMax) have several versions, one built on top of the other, increasing the complexity gradually.
+
 ## Explicit solutions
 
 The package comes with explicit solutions for the **Wordle** and **Termo** versions, located at the the [scripts/explicit_solutions](https://github.com/pedrolazera/WordleSolver/tree/main/scripts/explicit_solutions) folder.
