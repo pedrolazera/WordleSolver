@@ -5,21 +5,38 @@
 
 A Wordle game is a triplet (G, H, limit), where...
 
-* **G** is the set of all possible guesses (words)
-* **H** (a subset of G) is the set all possible hiddenwords
+* **P** is the set of all possible guesses (words)
+* **S** (a subset of P) is the set all possible hiddenwords
 * **limit** is the maximum number of guesses alowed
 
 ... and you goal is guess the hiddenword.
 
-There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **H** are sampled with equal propability).
+There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **S** are sampled with equal propability).
 
 ## How to use
 
+#### Simple usage with custom words and hiddenwords
+
 ```julia
+
+
 using WordleSolver
 
 max_depth = 5 # maximum search depth
-W = WordleSolver.T_Wordle(G, H) # assumes G and H are vector of strings
+W = WordleSolver.T_Wordle(P, S) # assumes G and H are vector of strings
+solver = WordleSolver.MinAvg5(max_depth, W)
+(opt, i) = WordleSolver.f_min(solver, W)
+```
+
+#### Simple usage with words from famous game versions
+
+```julia
+
+
+using WordleSolver
+
+max_depth = 5 # maximum search depth
+W = WordleSolver.T_Wordle(:Wordle) # this is the original Wordle game
 solver = WordleSolver.MinAvg5(max_depth, W)
 (opt, i) = WordleSolver.f_min(solver, W)
 ```
