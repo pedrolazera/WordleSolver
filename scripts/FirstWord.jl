@@ -12,6 +12,11 @@ const _ALPHAS_MINMAX = Dict(
 	:Wordle => 5
 )
 
+function do_it()
+	find_best_first_word_AVG()
+	find_best_first_word_MAX()
+end
+
 function find_best_first_word_AVG()
 	for game in _GAMES
 		println("\n****************\nLoading game...")
@@ -40,13 +45,5 @@ function find_best_first_word_MAX()
 	end
 end
 
-#find_best_first_word_AVG()
-find_best_first_word_MAX()
 
-#=
-124.923512 seconds (452.14 k allocations: 21.634 MiB)
-coras(2520) --> 4653
-
-826.694657 seconds (2.31 M allocations: 106.917 MiB)
-salet(9505) --> 7920
-=#
+do_it()
