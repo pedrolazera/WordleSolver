@@ -3,7 +3,7 @@
 
 ## How it works
 
-A Wordle game is a triplet (G, H, limit), where...
+A Wordle game is a triplet (P, S, limit), where...
 
 * **P** is the set of all possible guesses (words)
 * **S** (a subset of **P**) is the set all possible hidden words
@@ -24,7 +24,7 @@ using WordleSolver
 
 branch_factor = 150 # maximum number of children of each node in the search tree
 max_depth = 5 # maximum search depth
-W = WordleSolver.T_Wordle(P, S) # assumes G and H are vector of strings
+W = WordleSolver.T_Wordle(P, S) # assumes P and S are vector of strings
 solver = WordleSolver.MinAvg5(max_depth, W, branch_factor)
 (opt, i) = WordleSolver.f_min(solver, W)
 ```
