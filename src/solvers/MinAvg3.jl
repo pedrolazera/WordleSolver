@@ -78,7 +78,6 @@ function _f_min(solver::Abs_MinAvgSolver3, W::T_Wordle,
 	for (cnt, i) in enumerate(new_P)
 		(cumLBs[i] >= beta) && break
 		lb_i = LBs[i]
-		#(depth == 1) && (mod(cnt, 10) == 1) && println('\t'^(depth-1), "*** cnt = $cnt // i  = $(i) // lb_i = $(lb_i) // beta = $(beta)")
 		(lb_i >= beta) && continue
 
 		create_partition!(S, Sj, W.colors, i)

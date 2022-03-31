@@ -53,7 +53,6 @@ function _f_min(solver::Abs_MinMaxSolver3, W::T_Wordle, P::T_Ids,
 
 	for (cnt, i) in enumerate(new_P)
 		(cumLBs[i] >= beta) && break
-		#(depth == 1) && (mod(cnt, 100) == 1) && println('\t'^(depth-1), "*** cnt = $cnt // i  = $(i) // lb_i = $(LBs[i]) // beta = $(beta)")
 		(LBs[i] >= beta) && continue
 
 		create_partition!(S, Sj, W.colors, i)
