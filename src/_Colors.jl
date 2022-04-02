@@ -17,14 +17,40 @@ function compute_colors(lexicon::Vector{String}, G_ids::Vector{Int64})::Vector{V
 	frequencies::Vector{Vector{Int64}} = [ get_frequency(s_rel) for s_rel in lexicon_rel ]
 	
 	_word_size = length(lexicon[1])
-	_freq_j = Vector{Int64}(undef, _ALPHABET_SIZE)
-	_is_green = Vector{Bool}(undef, _word_size)
+	_freq_j = zeros(Int64, _ALPHABET_SIZE)
+	_is_green = zeros(Int64, _word_size)
 
+	#=
 	for i in 1:N
 		colors[i] = Vector{Int64}(undef, N)
 		for j in G_ids
 			_freq_j .= frequencies[j]
-			colors[i][j] = _compute_color!(lexicon_rel[i], lexicon_rel[j], _freq_j, _is_green)
+			colors[i][j] = _compute_color!(lexicon_rel[i],
+				lexicon_rel[j], _freq_j, _is_green)
+		end
+	end
+	=#
+
+
+	for i in 1:N
+		colors[i] = Vector{Int64}(undef, N)
+	end
+
+	for j in G_ids
+		s_rel_j = lexicon_rel[j]
+
+		for i in 1:N
+			# only update frequencies for chars in word j
+			for chr_rel in s_rel_j
+				_freq_j[chr_rel] = frequencies[j][chr_rel] 
+			end
+
+			colors[i][j] = _compute_color!(lexicon_rel[i], s_rel_j,
+				_freq_j, _is_green)
+		end
+
+		for chr_rel in s_rel_j
+			_freq_j[chr_rel] = 0
 		end
 	end
 	
@@ -37,24 +63,25 @@ compute_colors(lexicon::Vector{String}) = compute_colors(lexicon, collect(1:leng
 compute color (as a number) from testword=palpite and guessword = gabarito
 """
 function _compute_color!(palpite::Vector{Int64}, gabarito::Vector{Int64},
-	freq_gabarito::Vector{Int64}, is_green::Vector{Bool})::Int64
+	freq_gabarito::Vector{Int64}, is_green::Vector{Int64})::Int64
 	tam = length(palpite)
 	cor = 0
-
-	is_green .= false
 
 	# GREEN
 	for i in 1:tam
 		if palpite[i] == gabarito[i]
 			cor += _GREEN * (3^(tam-i))
 			freq_gabarito[gabarito[i]] -= 1
-			is_green[i] = true
+			is_green[i] = 1
 		end
 	end
 
 	# YELLOW, RED
 	for i in 1:tam
-		is_green[i] && continue
+		if is_green[i] == 1
+			is_green[i] = 0;
+			continue
+		end
 
 		if freq_gabarito[palpite[i]] > 0
 			freq_gabarito[palpite[i]] -= 1
@@ -82,7 +109,7 @@ function compute_color(palpite::String, gabarito::String)
 	palpite_rel = chars_to_nums(palpite)
 	gabarito_rel = chars_to_nums(gabarito)
 	_freq_gabarito = get_frequency(gabarito_rel)
-	_is_green = Vector{Bool}(undef, length(palpite))
+	_is_green = zeros(Int64, length(palpite))
 	_compute_color!(palpite_rel, gabarito_rel, _freq_gabarito, _is_green)
 end
 
