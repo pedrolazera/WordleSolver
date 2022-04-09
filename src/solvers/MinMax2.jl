@@ -61,8 +61,6 @@ function _F_3(solver::Abs_MinMaxSolver2, colors::T_Colors,
 
 	# look for i in the set (P-S) that splits set into singletons
 	for i in P
-		(i == j1 || i == j2 || i==j3) && continue
-
 		if ((colors[i][j1] != colors[i][j2])
 			&& (colors[i][j1] != colors[i][j3])
 			&& (colors[i][j2] != colors[i][j3]))
