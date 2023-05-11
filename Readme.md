@@ -9,7 +9,7 @@ A Wordle game is a triplet (P, S, limit), where...
 * **S** (a subset of **P**) is the set all possible hidden words
 * **limit** is the maximum number of guesses allowed
 
-... and you goal is guess the hidden word.
+... and you goal is to guess the hidden word.
 
 There are at least two meanings for "solve": find the strategy with the best worst-case and find the strategy with the best average-case (provided that the words from **S** are sampled with equal probability).
 
